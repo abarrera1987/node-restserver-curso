@@ -4,13 +4,19 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "node server/server.js",
+        "start": "nodemon server/server.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "Alexander Escobar",
     "license": "ISC",
     "dependencies": {
+        "bcrypt": "^3.0.4",
         "body-parser": "^1.18.3",
-        "express": "^4.16.4"
+        "colors": "^1.3.3",
+        "express": "^4.16.4",
+        "mongoose": "^5.4.16",
+        "mongoose-hidden": "^1.6.1",
+        "mongoose-unique-validator": "^2.0.2",
+        "underscore": "^1.9.1"
     }
 }
