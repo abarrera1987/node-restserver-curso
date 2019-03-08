@@ -21,7 +21,7 @@ mongoose.connect(process.env.URLDB, { useNewUrlParser: true, useCreateIndex: tru
     .then(console.log(colors.green('Base de datos ONLINE')))
     .catch(err => colors.red(err));
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 3000, () => {
 
     console.log("escuchando el puerto: ", process.env.PORT);
 
