@@ -35,4 +35,4 @@ if (process.env.NODE_ENV === 'dev') {
 
 }
 
-process.env.URLDB = urlDB;
+process.env.URLDB = process.env.DB_URI;
