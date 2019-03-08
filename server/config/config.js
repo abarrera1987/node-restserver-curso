@@ -1,5 +1,4 @@
-const ENV = require('dotenv');
-ENV.config();
+const ENV = require('dotenv').config();
 /** 
  * ======================================
  * Puerto
@@ -31,8 +30,9 @@ if (process.env.NODE_ENV === 'dev') {
 
 } else {
 
-    urlDB = process.env.DB_URI;
+    urlDB = 'mongodb+srv://hunter:lore2008*@cluster0-ozeoe.mongodb.net/cafe?retryWrites=true';
+    console.log(process.env.DB_URI);
 
 }
 
-process.env.URLDB = process.env.DB_URI;
+process.env.URLDB = urlDB;
