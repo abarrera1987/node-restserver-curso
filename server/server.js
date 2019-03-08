@@ -6,9 +6,9 @@ const bodyParser = require('body-parser');
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
-
-require('./config/config');
 require('dotenv').config();
+require('./config/config');
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 
