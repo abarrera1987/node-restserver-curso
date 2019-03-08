@@ -29,7 +29,7 @@ if (process.env.NODE_ENV === 'dev') {
 
 } else {
 
-    urlDB = 'mongodb+srv://hunter:lore2008*@cluster0-ozeoe.mongodb.net/cafe?retryWrites=true';
+    urlDB = process.env.MONGO_URI;
 
 }
 
