@@ -17,7 +17,7 @@ app.use(bodyParser.json())
 
 app.use(require('./routes/routes'));
 
-mongoose.connect('mongodb://localhost:27017/cafe', { useNewUrlParser: true })
+mongoose.connect(process.env.URLDB, { useNewUrlParser: true, useCreateIndex: true })
     .then(console.log(colors.green('Base de datos ONLINE')))
     .catch(err => colors.red(err));
 

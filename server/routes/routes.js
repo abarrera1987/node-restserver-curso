@@ -11,7 +11,7 @@ app.get('/usuarios', function(req, res) {
 
     let limite = Number(req.query.limite) || 5;
 
-    Usuario.find({}, 'nombre email estado img')
+    Usuario.find({ estado: true }, 'nombre email estado img')
         .skip(desde)
         .limit(limite)
         .exec((err, usuarios) => {
@@ -23,7 +23,7 @@ app.get('/usuarios', function(req, res) {
                 });
             }
 
-            Usuario.count({}, (err, rows) => {
+            Usuario.countDocuments({ estado: true }, (err, rows) => {
 
                 res.json({
 
@@ -102,8 +102,40 @@ app.put('/actualizarUsuario/:id', function(req, res) {
 
 });
 
-app.delete('/eliminarUsuario', function(req, res) {
-    res.json('Elimina usuario')
+app.delete('/eliminarUsuario/:id', function(req, res) {
+
+    let id = req.params.id;
+
+    let body = _.pick(req.body, ['estado']);
+
+    //para regresar el usuario actualizado
+    let options = {
+
+        new: true,
+        runValidators: true
+
+    }
+
+    let updateObject = { estado: false };
+
+    Usuario.findByIdAndUpdate(id, updateObject, options, (err, borro) => {
+
+        if (err) {
+            return res.status(400).json({
+                ok: false,
+                err
+            });
+        }
+
+        res.json({
+
+            ok: true,
+            usuario: borro
+
+        })
+
+    });
+
 });
 
 module.exports = app;
