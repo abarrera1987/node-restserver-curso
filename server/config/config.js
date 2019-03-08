@@ -1,3 +1,5 @@
+const ENV = require('dotenv');
+ENV.config();
 /** 
  * ======================================
  * Puerto
@@ -22,7 +24,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
  */
 
 let urlDB;
-require('dotenv').config();
+
 if (process.env.NODE_ENV === 'dev') {
 
     urlDB = 'mongodb://localhost:27017/cafe';
